@@ -18,7 +18,6 @@ IfWinExist, Specify Calculation
   Keywait, a
 }
 
-
 IfWinExist, Edit Custom Function
 {
   WinActivate, Edit Custom Function
@@ -92,6 +91,16 @@ IfWinExist, Edit Expression
 
 {
   WinActivate, Edit Expression
+  ControlFocus, Edit1
+  Send, ^a
+  Keywait, a
+  Send, ^v
+  Sleep 100
+}
+
+IfWinExist,"Show Custom Dialog" Options
+{
+  WinActivate, "Show Custom Dialog" Options
   ControlFocus, Edit1
   Send, ^a
   Keywait, a
