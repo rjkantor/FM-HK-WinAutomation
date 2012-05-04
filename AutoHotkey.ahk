@@ -9,10 +9,42 @@ Clip = %Clipboard%
 Clipboard =
 FName = FMPro_Clip_001.fmfn
 FileDelete, C:\Users\rkantor\Documents\RJK\%FName%
-Send, ^a
-KeyWait, a
+
+IfWinExist, Specify Calculation
+{
+  WinActivate, Specify Calculation
+  ControlFocus, Edit1
+  Send, ^a
+  Keywait, a
+}
+
+
+IfWinExist, Edit Custom Function
+{
+  WinActivate, Edit Custom Function
+  ControlFocus, Edit3
+  Send, ^a
+  Keywait, a
+}
+
+IfWinExist, Edit Expression
+{
+  WinActivate, Edit Expression
+  ControlFocus, Edit1
+  Send, ^a
+  Keywait, a
+}
+
+IfWinExist,"Show Custom Dialog" Options
+{
+  WinActivate, "Show Custom Dialog" Options
+  ControlFocus, Edit2
+  Send, ^a
+  Keywait, a
+}
+
 Send, ^c
-ClipWait
+ClipWait, 2
 Loop, parse, clipboard, `n, `r  ; Specifying `n prior to `r allows both Windows and Unix files to be parsed.
 {
     FileAppend, %A_LoopField% `n, C:\Users\rkantor\Documents\RJK\%FName%
